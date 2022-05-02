@@ -6,6 +6,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -36,9 +37,11 @@ public class BaseClass {
 		extent.attachReporter(spark);
 	}
 	
+	@Parameters("browser")
 	@BeforeClass
-	public void setup() {
-		driver = DriverFactory.startApplicatiion(driver, config.getBrowser(), config.getAppUrl());
+	public void setup(String browser) {
+		//driver = DriverFactory.startApplicatiion(driver, config.getBrowser(), config.getAppUrl());
+		driver = DriverFactory.startApplicatiion(driver, browser, config.getAppUrl());
 		System.out.println(driver.getTitle());
 	}
 	
