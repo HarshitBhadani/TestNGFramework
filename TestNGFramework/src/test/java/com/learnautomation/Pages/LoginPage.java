@@ -15,7 +15,7 @@ public class LoginPage {
 	@FindBy(id = "email") WebElement username;
 	@FindBy(id = "passwd") WebElement password;
 	@FindBy(id = "SubmitLogin") WebElement loginButton;
-	//Commit 4
+	//Commit 4 
 	public void LoginToCRM(String uname,String pass) {
 		username.sendKeys(uname);
 		password.sendKeys(pass);
